@@ -52,6 +52,8 @@ bindsym Mod4+y border pixel 10
 bindsym Mod4+u border none
 for_window [window_role="pop-up"] floating enable       # 让弹窗以浮动窗口打开
 for_window [window_role="task_dialog"] floating enable
+# for_window [class="matplotlib"] floating enable resize set 800x600
+for_window [class="matplotlib"] floating enable
 # assign [class="figure 1"] floating toggle
 
 # hide_edge_borders both
@@ -257,7 +259,7 @@ exec i3-config-wizard
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
-# for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 3
 
 # Smart Gaps
 smart_gaps on
