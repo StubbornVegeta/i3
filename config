@@ -36,24 +36,26 @@ floating_modifier Mod4
 
 hide_edge_borders both 
 # start a terminal
-# bindsym Mod4+Return exec i3-sensible-terminal
-# bindsym Mod4+Shift+Return exec i3-sensible-terminal -e ranger
-# bindsym Mod4+Return exec alacritty 
+#bindsym Mod4+Return exec i3-sensible-terminal
+#bindsym Mod4+Shift+Return exec i3-sensible-terminal -e ranger
+# bindsym Mod4+Return exec alacritty
 # bindsym Mod4+Shift+Return exec alacritty -e ranger
-bindsym Mod4+Return exec st 
+bindsym Mod4+Return exec st
 bindsym Mod4+Shift+Return exec st -e ranger
 
 # ==============设置窗口边框=============
 # new_window none                         # 普通窗口无边框无标签栏
 # for_window [class=".*"] border pixel 10
 # new_float none                          # 悬浮窗口无边框无标签栏
-bindsym Mod4+t border normal 
+bindsym Mod4+t border normal
 bindsym Mod4+y border pixel 2
 bindsym Mod4+u border none
 for_window [window_role="pop-up"] floating enable       # 让弹窗以浮动窗口打开
 for_window [window_role="task_dialog"] floating enable
 # for_window [class="matplotlib"] floating enable resize set 800x600
 for_window [class="matplotlib"] floating enable
+for_window [class="vokoscreen"] floating enable
+for_window [class="Vlc"] floating enable
 for_window [class="Conky"] floating enable
 
 # hide_edge_borders both
@@ -123,11 +125,11 @@ bindsym Mod4+a focus parent
 #bindsym Mod4+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym Mod4+Shift+minus move scratchpad
+bindsym Mod4+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod4+minus scratchpad show
+bindsym Mod4+Shift+minus scratchpad show
 
 # switch to workspace
 bindsym Mod4+1 workspace "1:Terminal"
@@ -163,13 +165,16 @@ assign [class="MATLAB"] "5:MATLAB"
 assign [class="octave"] "5:MATLAB"
 # ===================快捷键启动程序=======================
 bindsym Mod4+Shift+f exec firefox
-bindsym Mod4+Shift+g exec chromium
+bindsym Mod4+Shift+w exec chromium-browser
 bindsym Mod4+Shift+a exec "shutter -s"
-bindsym Mod4+Shift+m exec bash /usr/local/MATLAB/R2018b/bin/matlab -desktop
+# bindsym Mod4+Shift+m exec bash /usr/local/MATLAB/R2018b/bin/matlab -desktop
 bindsym Mod4+Shift+s exec spyder
+bindsym Mod4+Shift+m exec key-mon
+bindsym Mod4+m exec pkill key-mon
 # bindsym Mod4+Shift+o exec octave
-bindsym Mod4+Shift+w exec "wps &"
+# bindsym Mod4+Shift+w exec "wps &"
 bindsym Mod4+Shift+p exec bash ~/Pictures/wallpapers/wallpaper.sh
+bindsym Mod4+Shift+v exec bash ~/scripts/vpn.sh
 # reload the configuration file
 bindsym Mod4+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -234,7 +239,7 @@ bar {
 }
 
 # hide/unhide i3status bar
-bindsym Mod4+m bar mode toggle
+bindsym Mod4+b bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -259,17 +264,15 @@ client.background       #2B2C2B
 # 关闭屏保
 exec --no-startup-id xset s 0
 exec --no-startup-id xset dpms 0 0 0
-# exec_always --no-startup-id xcompmgr -Fcf -nc -t -5 &
-# exec_always --no-startup-id compton
 exec_always compton -b
-# exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/wallpaper10.jpg
-exec_always --no-startup-id bash ~/Pictures/wallpapers/wallpaper.sh
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/elk.jpg
+exec_always xfce4-power-manager
 exec i3-config-wizard
 
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
 # Smart Gaps
 # smart_gaps on
@@ -278,7 +281,7 @@ for_window [class="^.*"] border pixel 2
 # smart_borders on
 
 # Set inner/outer gaps
-gaps inner 8
+gaps inner 5
 gaps outer 0
 
 # ---------------------
@@ -328,4 +331,4 @@ bindsym Mod4+z gaps inner current set 8
 #          bindsym Return mode "default"
 #          bindsym Escape mode "default"
 #  }
-#  
+#

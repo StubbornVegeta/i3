@@ -8,9 +8,9 @@
 
 general {
         colors = true
-		color_good = "#1793D0"
-		color_degraded = "#006298"
-		color_bad = "#FF00FF"
+        color_good = "#1793D0"
+        color_degraded = "#006298"
+        color_bad = "#FF00FF"
         interval = 5
 }
 
@@ -25,6 +25,7 @@ order += "tztime local"
 wireless _first_ {
 #        format_up = "W: (%quality at %essid) %ip"
         format_up = "W: (%quality at %essid) "
+        #format_up = "W: (wifi) "
         format_down = "W: down"
 }
 
